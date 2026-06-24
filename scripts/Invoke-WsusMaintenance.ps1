@@ -17,7 +17,7 @@
 
 .PARAMETER Servers
     Array of hashtables describing the topology. Each entry:
-        @{ Name = '<host>'; Port = 8531|8530; Secure = $true|$false; DeclineX86 = $true|$false }
+        @{ Name = '<host>'; Port = 8531; Secure = $true; DeclineX86 = $true|$false }
     On a replica topology, downstream servers inherit approvals/declines from the
     upstream: set DeclineX86 = $true only on the upstream (and on autonomous servers).
 
@@ -48,7 +48,7 @@ param(
     [object[]] $Servers = @(
         @{ Name = 'WSUS-UPSTREAM';      Port = 8531; Secure = $true; DeclineX86 = $true  }
         @{ Name = 'WSUS-DOWNSTREAM-01'; Port = 8531; Secure = $true; DeclineX86 = $false }
-        # @{ Name = 'WSUS-DOWNSTREAM-02'; Port = 8531; Secure = $true; DeclineX86 = $false }
+        # @{ Name = 'WSUS-DOWNSTREAM-02'; Port = 853&; Secure = $true; DeclineX86 = $false }
     ),
     [string]   $SmtpServer   = 'smtp.example.local',
     [string]   $From         = 'WSUS Report <wsus-report@example.local>',
